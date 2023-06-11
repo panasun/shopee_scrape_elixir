@@ -45,6 +45,7 @@ defmodule ShopeeScrape do
               "hscode" => "0902",
               "tax" => "GEN_Zero",
               "image" => Map.get(&1, "image") |> image_url,
+              "image_cover" => Map.get(&1, "image") |> image_url,
               "image0" => Map.get(&1, "images") |> Enum.at(0) |> image_url,
               "image1" => Map.get(&1, "images") |> Enum.at(1) |> image_url,
               "image2" => Map.get(&1, "images") |> Enum.at(2) |> image_url,
@@ -74,6 +75,12 @@ defmodule ShopeeScrape do
                 "hscode" => "0902",
                 "tax" => "GEN_Zero",
                 "image" =>
+                  Map.get(&1, "tier_variations")
+                  |> Enum.at(0)
+                  |> Map.get("images")
+                  |> Enum.at(index)
+                  |> image_url,
+                "image_cover" =>
                   Map.get(&1, "tier_variations")
                   |> Enum.at(0)
                   |> Map.get("images")
@@ -109,19 +116,20 @@ defmodule ShopeeScrape do
             "variation_type" -> {"ชื่อตัวเลือก 1", value}
             "variation_name" -> {"ตัวเลือก 1", value}
             "image" -> {"ภาพตัวเลือก", value}
+            "image_cover" -> {"ภาพปก", value}
             "price" -> {"ราคา", value}
             "quantity" -> {"คลังสินค้า", value}
             "sku" -> {"เลข SKU", value}
             "hscode" -> {"HS Code", value}
             "tax" -> {"Tax Code", value}
-            "image0" -> {"ภาพปก", value}
-            "image1" -> {"รูปภาพ 1", value}
-            "image2" -> {"รูปภาพ 2", value}
-            "image3" -> {"รูปภาพ 3", value}
-            "image4" -> {"รูปภาพ 4", value}
-            "image5" -> {"รูปภาพ 5", value}
-            "image6" -> {"รูปภาพ 6", value}
-            "image7" -> {"รูปภาพ 7", value}
+            "image0" -> {"รูปภาพ 1", value}
+            "image1" -> {"รูปภาพ 2", value}
+            "image2" -> {"รูปภาพ 3", value}
+            "image3" -> {"รูปภาพ 4", value}
+            "image4" -> {"รูปภาพ 5", value}
+            "image5" -> {"รูปภาพ 6", value}
+            "image6" -> {"รูปภาพ 7", value}
+            "image7" -> {"รูปภาพ 8", value}
             "weight" -> {"น้ำหนัก", value}
             "brand" -> {"แบรนด์", value}
             "country_of_origin" -> {"Country of Origin", value}
