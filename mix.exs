@@ -23,6 +23,7 @@ defmodule ShopeeScrape.MixProject do
     [
       {:httpoison, "~> 2.0"},
       {:jason, "~> 1.4"},
+      {:floki, "~> 0.34.0"},
       {:csv, "~> 3.0"},
       {:elixlsx, "~> 0.5.1"}
     ]
